@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiAuthController;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\FeedBackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,9 @@ Route::prefix('auth')->group(function () {
     Route::post('login', [ApiAuthController::class, 'login']);
 });
 Route::prefix('data')->group(function () {
-    Route::middleware('auth:api')->get('courses', [CoursesController::class, 'Courses']);
-    Route::middleware('auth:api')->post('userRequest', [CoursesController::class, 'UserRequest']);
+    Route::middleware('auth:api')->get('courses/myassignments', [CoursesController::class, 'MyAssignments']);
+    Route::middleware('auth:api')->get('courses/mycourses', [CoursesController::class, 'MyCourses']);
+    Route::middleware('auth:api')->get('courses/popularcourses', [CoursesController::class, 'MyCourses']);
+    Route::middleware('auth:api')->post('feedback', [FeedBackController::class, 'FeedBack']);
     //Route::get('courses', [CoursesController::class, 'Courses']);
 });

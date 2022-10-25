@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserRequest extends Model
+class FeedBack extends Model
 {
-    protected $table = 'user_request';
+    protected $table = 'feed_back';
     protected $fillable = ['email', 'subject', 'content'];
 }
