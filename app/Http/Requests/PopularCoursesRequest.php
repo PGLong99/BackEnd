@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MyAssignmentsRequest extends FormRequest
+class PopularCoursesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,7 @@ class MyAssignmentsRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
-            'subject' => 'required',
-            'content'
+            'limit' => 'required',
         ];
     }
 }

@@ -25,10 +25,9 @@ Route::prefix('auth')->group(function () {
     Route::middleware('auth:api')->get('authenticated-user-details', [ApiAuthController::class, 'authenticatedUserDetails']);
     Route::post('login', [ApiAuthController::class, 'login']);
 });
-Route::prefix('data')->group(function () {
-    Route::middleware('auth:api')->get('courses/myassignments', [CoursesController::class, 'MyAssignments']);
-    Route::middleware('auth:api')->get('courses/mycourses', [CoursesController::class, 'MyCourses']);
-    Route::middleware('auth:api')->get('courses/popularcourses', [CoursesController::class, 'MyCourses']);
-    Route::middleware('auth:api')->post('feedback', [FeedBackController::class, 'FeedBack']);
-    //Route::get('courses', [CoursesController::class, 'Courses']);
+Route::prefix('courses')->group(function () {
+    Route::middleware('auth:api')->get('myassignments', [CoursesController::class, 'MyAssignments']);
+    Route::middleware('auth:api')->get('mycourses', [CoursesController::class, 'MyCourses']);
+    Route::middleware('auth:api')->get('popularcourses', [CoursesController::class, 'PopularCourses']);
 });
+Route::middleware('auth:api')->post('/feedback', [FeedBackController::class, 'FeedBack']);
